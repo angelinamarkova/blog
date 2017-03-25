@@ -1,0 +1,1 @@
+"use strict";var templates={get:function(t){var e="./templates/"+t+".html";return requester.get(e)}};

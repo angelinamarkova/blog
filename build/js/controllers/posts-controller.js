@@ -1,0 +1,1 @@
+"use strict";var blogControllers={get:function(o,l){return{blogHome:function(){l.get("home").then(function(l){console.log("Home");var n=Handlebars.compile(l),e={},t=void 0;o.getAllPosts().on("value",function(o){e.posts=o.val(),t=n(e),$("#container").html(t),console.log("Blogs: ",o.val())})})}}}};

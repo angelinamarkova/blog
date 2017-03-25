@@ -1,0 +1,1 @@
+"use strict";var blogService={getAllPosts:function(){return console.log("Get posts"),database.ref("/blogs")}};

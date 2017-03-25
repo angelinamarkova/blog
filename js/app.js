@@ -15,7 +15,7 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 var provider = new firebase.auth.GoogleAuthProvider();
-console.log("Database: ", database);
+console.log("Databases: ", database);
 
 let userControllerInstance = userControllers.get(userService, templates);
 let blogControllerInstance = blogControllers.get(blogService, templates);

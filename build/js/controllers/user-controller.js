@@ -1,0 +1,1 @@
+"use strict";var userControllers={get:function(n,t){return{login:function(){n.isSignedIn().then(function(e){n.signIn().then(function(n){console.log("User: ",n)}),t.get("login").then(function(n){var t=Handlebars.compile(n),e=t();$("#container").html(e)})})}}}};

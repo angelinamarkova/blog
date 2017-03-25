@@ -1,0 +1,1 @@
+"use strict";var userService={isSignedIn:function(){return Promise.resolve().then(function(){return!!firebase.User})},signIn:function(){firebase.auth().signInWithPopup(provider).then(function(e){var n=(e.credential.accessToken,e.user);console.log("User: ",n)}).catch(function(e){console.log("Token: ",e);e.code,e.message,e.email,e.credential})}};
