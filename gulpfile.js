@@ -17,7 +17,7 @@ const scsslint = require('gulp-scss-lint'),
     eslint = require("gulp-eslint");
 
 gulp.task('lint:scss', function() {
-    return gulp.src('/scss/*.scss')
+    return gulp.src('./src/scss/*.scss')
         .pipe(scsslint());
 });
 
@@ -28,14 +28,14 @@ gulp.task("lint:js", () => {
         .pipe(eslint.failAfterError());
 });
 
-gulp.task("lint", ["lint:scss", "lint:js"]);
+gulp.task("lint", ["lint:js"]);
 
 //  Compile
 const sass = require('gulp-sass'),
     babel = require("gulp-babel");
 
 gulp.task('compile:sass', function () {
-    return gulp.src('./scss/*.scss')
+    return gulp.src('./src/scss/*.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('./build/css'));
 });
@@ -114,7 +114,7 @@ gulp.task("rename", gulpsync.sync(["rename:css", "rename:js"]));
 
 // Watch
 gulp.task('watch', function () {
-    gulp.watch('./scss/*.scss', ['build']);
+    gulp.watch('./src/scss/*.scss', ['build']);
     gulp.watch('./js/**/*.js', ['build']);
     gulp.watch('./templates/**/*.handlebars', ['build']);
     //gulp.watch('./', ['build']);
