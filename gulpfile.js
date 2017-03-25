@@ -4,7 +4,9 @@ const gulp = require("gulp"),
     nodemon = require("gulp-nodemon"),
     es = require('event-stream'),
     browserSync = require('browser-sync').create(),
-    reload = browserSync.reload;
+    reload = browserSync.reload,
+    scsslint = require('gulp-scss-lint'),
+    eslint = require("gulp-eslint");
 
 
 gulp.task("clean", () => {
@@ -13,9 +15,6 @@ gulp.task("clean", () => {
 });
 
 //  Lint
-const scsslint = require('gulp-scss-lint'),
-    eslint = require("gulp-eslint");
-
 gulp.task('lint:scss', function() {
     return gulp.src('./src/scss/*.scss')
         .pipe(scsslint());
@@ -41,7 +40,7 @@ gulp.task('compile:sass', function () {
 });
 
 gulp.task("compile:js", () => {
-    return gulp.src("./js/**/*.js")
+    return gulp.src("./src/js/**/*.js")
         .pipe(babel({
             presets: ["es2015"]
         }))
@@ -115,7 +114,7 @@ gulp.task("rename", gulpsync.sync(["rename:css", "rename:js"]));
 // Watch
 gulp.task('watch', function () {
     gulp.watch('./src/scss/*.scss', ['build']);
-    gulp.watch('./js/**/*.js', ['build']);
+    gulp.watch('./src/js/**/*.js', ['build']);
     gulp.watch('./templates/**/*.handlebars', ['build']);
     //gulp.watch('./', ['build']);
 });
@@ -124,7 +123,7 @@ gulp.task('watch', function () {
 gulp.task('reload', browserSync.reload);
 
 //  Build
-gulp.task("build", gulpsync.sync(["lint", "clean", "compile", "uglify", "rename"]));
+gulp.task("build", gulpsync.sync(["clean", "compile", "uglify", "rename"]));
 
 // Serve
 gulp.task('browserSync', function() {
