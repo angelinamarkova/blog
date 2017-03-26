@@ -3,8 +3,9 @@ body{background:url("../../src/assets/images/background-pattern.jpg");font-size:
 body a.active,body a :hover,body a :focus,body li a.active,body li a :hover,body li a :focus,body li a span.active,body li a span :hover,body li a span :focus{color:#437d8b}
 body li.active a,body li a:hover{color:#437d8b !important;text-decoration:none;background:none !important}
 body h1,body h2,body h3,body h4,body h5,body h6,body a,body a *{font-family:'Kreon',serif;font-weight:normal}
-body p{font-family:'Droid Sans',sans-serif;color:#929292}body .section-separator{width:80%;margin-top:50px;color:#f0f0f0}
-.white-bg{background:#fff}.main-container{box-shadow:0 1px 5px 1px rgba(0,0,0,0.08);border:1px solid white;margin:30px auto}
+body h1{font-size:28px}body h2{font-size:24px}body p{font-family:'Droid Sans',sans-serif;color:#929292}
+body .section-separator{width:80%;margin-top:50px;color:#f0f0f0}.white-bg{background:#fff}
+.main-container{box-shadow:0 1px 5px 1px rgba(0,0,0,0.08);border:1px solid white;margin:30px auto}
 .fa{font-size:22px !important;transition:all ease-in-out .3s}.fa.social-icon{color:#e3e3e3;margin-right:5px}
 .fa:hover,.fa.social-icon:hover{color:#437d8b}header{color:#393939}header .top-nav{border-bottom:1px solid #cbcbcb;box-shadow:inset 4px 24px 60px -8px rgba(0,0,0,0.08);position:relative}
 header .top-nav li a{padding-bottom:0;margin-top:15px}header .top-nav .navbar-default{background:0;border:0;margin-top:20px}
@@ -25,3 +26,5 @@ header .main-nav a{text-transform:uppercase}.carousel.custom-carousel img{width:
 .carousel.custom-carousel .custom-chevron.custom-chevron-right{background:url("../../src/assets/images/carousel-arrow-right.png") no-repeat center;right:-6px}
 .carousel.custom-carousel .carousel-caption{left:initial;right:5%;top:15%;width:40%;height:70%;background:rgba(0,0,0,0.59);text-align:left;padding:5%}
 .carousel.custom-carousel .carousel-caption h2{font-size:28px;font-weight:100;margin-top:0}
+@media only screen and (max-device-width:1024px){.main-container{margin:10px}.custom-carousel.carousel .carousel-caption{width:90%}
+}

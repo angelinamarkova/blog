@@ -55,6 +55,14 @@ body {
     font-weight: normal;
   }
 
+  h1 {
+    font-size:28px;
+  }
+
+  h2{
+    font-size:24px;
+  }
+
   p {
     font-family: 'Droid Sans', sans-serif;
     color: $paragraph-color;
@@ -261,4 +269,21 @@ header {
 
 
   }
+}
+
+/*RESPONSIVE STYLES START*/
+/* Tablets and smaller */
+@media only screen and (max-device-width : 1024px) {
+  .main-container{
+    margin: 10px;
+  }
+
+  .custom-carousel.carousel {
+    .carousel-caption {
+      width: 90%;
+    }
+  }
+
+
+
 }
