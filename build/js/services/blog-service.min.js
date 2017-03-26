@@ -1,1 +1,1 @@
-"use strict";var blogService={getAllPosts:function(){return console.log("Get posts"),database.ref("/blogs")}};
+"use strict";var blogService={getAllPosts:function(){return app.database.ref("/posts")},createPost:function(e,t,r,a){console.log("USer: ",JSON.parse(localStorage.getItem("currentUser")));var o={title:e,author:JSON.parse(localStorage.getItem("currentUser")),category:t,content:r,headerImg:a};return console.log(o),firebase.database().ref().child("posts").push(o)}};

@@ -1,1 +1,19 @@
-body{color:purple}
+@import url("https://fonts.googleapis.com/css?family=Kreon:300,400,700");@font-face{font-family:'BlackJack';src:url("../../src/assets/fonts/blackjack.otf")}
+body{background:url("../../src/assets/images/background-pattern.jpg");font-size:15px}body a,body li a,body li a span{text-decoration:none;display:block;color:#393939;transition:all ease-in-out .2s}
+body a.active,body a :hover,body a :focus,body li a.active,body li a :hover,body li a :focus,body li a span.active,body li a span :hover,body li a span :focus{color:#437d8b}
+body li.active a,body li a:hover{color:#437d8b !important;text-decoration:none;background:none !important}
+body h1,body h2,body h3,body h4,body h5,body h6,body a,body a *{font-family:'Kreon',serif;font-weight:normal}
+.white-bg{background:#fff}.main-container{box-shadow:0 1px 5px 1px rgba(0,0,0,0.08);border:1px solid white}
+.fa{font-size:22px !important;transition:all ease-in-out .3s}.fa.social-icon{color:#e3e3e3;margin-right:5px}
+.fa:hover,.fa.social-icon:hover{color:#437d8b}header{color:#393939}header .top-nav{border-bottom:1px solid #cbcbcb;box-shadow:inset 4px 24px 60px -8px rgba(0,0,0,0.08);position:relative}
+header .top-nav li a{padding-bottom:0;margin-top:15px}header .top-nav .navbar-default{background:0;border:0;margin-top:20px}
+header .top-nav .fixed-form{position:absolute;top:0;right:0}header .top-nav .icon-group{position:absolute;top:6px;left:-105px}
+header .top-nav .icon-group a{display:inline-block}header .top-nav .search-input{border:1px;border-style:solid;border-color:white white #cbcbcb #cbcbcb;border-radius:0;box-shadow:inset 3px 5px 32px 1px rgba(0,0,0,0.08);color:silver;font-family:"Georgia",serif;font-style:italic;position:relative;width:200px}
+header .top-nav .custom-search{position:absolute;top:10px;right:10px;color:silver}
+header .logo-holder{display:inline-block;width:auto;transition:all ease-in-out .3s}
+header .logo-holder:hover{cursor:pointer;text-decoration:none}header .logo-holder:hover .logo-name{color:#393939}
+header .logo-holder .logo-img{background:url(../../src/assets/images/logo.png) no-repeat;background-position:0 5px;background-size:42px 50px;display:inline-block;float:left;width:50px;height:55px}
+header .logo-holder .logo-name{color:#393939;font-family:'BlackJack',cursive;font-weight:normal;font-size:32px;letter-spacing:2px;display:inline-block}
+header .logo-holder .logo-slogan{color:#437d8b;text-transform:uppercase;margin:-10px 0 0 55px;letter-spacing:-0.5px}
+header .main-nav{background:url(../../src/assets/images/menu-pattern.jpg);box-shadow:inset 0 2px 9px 0 rgba(0,0,0,0.08)}
+header .main-nav a{text-transform:uppercase}

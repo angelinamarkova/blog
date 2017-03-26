@@ -1,3 +1,183 @@
-body {
-  color:purple;
+/*FONTS*/
+@font-face {
+  font-family: 'BlackJack';
+  src:  url('../../src/assets/fonts/blackjack.otf');
 }
+
+@import url('https://fonts.googleapis.com/css?family=Kreon:300,400,700');
+
+/*GLOBAL VARIABLES START*/
+$link-color: #393939;
+$link-active-color: #437d8b;
+$border-color: #cbcbcb;
+$font-italic: #a3a3a3;
+$glyphicon-color: #c0c0c0;
+$social-icon: #e3e3e3;
+
+/*MIXINS START*/
+@mixin transition($time){
+  transition: all ease-in-out $time;
+}
+
+body {
+  background: url('../../src/assets/images/background-pattern.jpg');
+  font-size:15px;
+
+  a, li a, li a span{
+    text-decoration: none;
+    display: block;
+    color: $link-color;
+    @include transition(0.2s);
+
+    &.active,
+    :hover,
+    :focus {
+      color: $link-active-color;
+    }
+  }
+
+  li.active a,
+  li a:hover  {
+    color: $link-active-color!important;
+    text-decoration: none;
+    background: none!important;
+
+  }
+
+  h1, h2, h3, h4, h5, h6, a, a *{
+    font-family: 'Kreon', serif;
+    font-weight: normal;
+  }
+}
+
+.white-bg {
+  background: #fff;
+}
+
+.main-container {
+  box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, 0.08);
+  border: 1px solid white;
+}
+
+.fa {
+  font-size: 22px!important;
+  @include transition(0.3s);
+
+  &.social-icon {
+    color: $social-icon;
+    margin-right: 5px;
+  }
+
+  &:hover,
+  &.social-icon:hover {
+    color: $link-active-color;
+  }
+}
+
+/*HEADER STYLES*/
+header {
+  color: $link-color;
+  .top-nav {
+    border-bottom: 1px solid #cbcbcb;
+    box-shadow: inset 4px 24px 60px -8px rgba(0, 0, 0, 0.08);
+    position: relative;
+
+    li a {
+      padding-bottom: 0px;
+      margin-top: 15px;
+    }
+
+    .navbar-default {
+      background:none;
+      border:none;
+      margin-top:20px;
+    }
+
+    .fixed-form {
+      position: absolute;
+      top:0;
+      right:0;
+    }
+
+    .icon-group {
+      position: absolute;
+      top: 6px;
+      left: -105px;
+
+      a {
+        display: inline-block;
+      }
+    }
+
+    .search-input {
+      border: 1px;
+      border-style: solid;
+      border-color: white white #cbcbcb #cbcbcb;
+      border-radius: 0;
+      box-shadow: inset 3px 5px 32px 1px rgba(0, 0, 0, 0.08);
+      color: $glyphicon-color;
+      font-family: "Georgia", serif;
+      font-style: italic;
+      position: relative;
+      width: 200px;
+    }
+
+    .custom-search {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: $glyphicon-color;
+    }
+  }
+
+  .logo-holder {
+    display:inline-block;
+    width:auto;
+    @include transition(0.3s);
+
+    &:hover {
+      cursor: pointer;
+      text-decoration: none;
+
+      .logo-name {
+        color: $link-color;
+      }
+    }
+
+    .logo-img {
+      background: url(../../src/assets/images/logo.png) no-repeat;
+      background-position: 0 5px;
+      background-size: 42px 50px;
+      display: inline-block;
+      float: left;
+      width: 50px;
+      height: 55px;
+    }
+
+    .logo-name{
+      color: $link-color;
+      font-family: 'BlackJack',cursive;
+      font-weight: normal;
+      font-size: 32px;
+      letter-spacing: 2px;
+      display: inline-block;
+    }
+
+    .logo-slogan {
+      color: #437d8b;
+      text-transform: uppercase;
+      margin: -10px 0 0 55px;
+      letter-spacing: -0.5px;
+    }
+  }
+
+  .main-nav {
+    background: url(../../src/assets/images/menu-pattern.jpg);
+    box-shadow: inset 0 2px 9px 0 rgba(0, 0, 0, 0.08);
+
+    a {
+      text-transform: uppercase;
+    }
+  }
+}
+
