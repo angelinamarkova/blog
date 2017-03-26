@@ -1,7 +1,11 @@
 var  blogService = {
 
     getAllPosts() {
-        return app.database.ref('/posts');
+        return app.database.ref('/posts').once('value');
+    },
+
+    getAllCategories() {
+        return app.database.ref('/categories').once('value');
     },
 
     createPost(title, category, content, headerImg) {
@@ -16,5 +20,16 @@ var  blogService = {
 
         console.log(post);
         return firebase.database().ref().child('posts').push(post);
+    },
+
+    createCategory(title, description, img) {
+        var category = {
+            title: title,
+            description: description,
+            headerImg: img
+        };
+
+        console.log(category);
+        return firebase.database().ref().child('categories').push(category);
     }
 };

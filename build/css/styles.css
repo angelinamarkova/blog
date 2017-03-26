@@ -3,22 +3,24 @@ body{background:url("../../src/assets/images/background-pattern.jpg");font-size:
 body a.active,body a :hover,body a :focus,body li a.active,body li a :hover,body li a :focus,body li a span.active,body li a span :hover,body li a span :focus{color:#437d8b}
 body li.active a,body li a:hover{color:#437d8b !important;text-decoration:none;background:none !important}
 body h1,body h2,body h3,body h4,body h5,body h6,body a,body a *{font-family:'Kreon',serif;font-weight:normal}
-body h1{font-size:28px}body h2{font-size:24px}body p{font-family:'Droid Sans',sans-serif;color:#929292}
-body .section-separator{width:80%;margin-top:50px;color:#f0f0f0}.white-bg{background:#fff}
-.main-container{box-shadow:0 1px 5px 1px rgba(0,0,0,0.08);border:1px solid white;margin:30px auto}
+body h1{font-size:28px}body h2{font-size:24px}body p{font-family:'Droid Sans',sans-serif;color:#929292;font-size:14px}
+body section{margin-top:40px}body .darker{color:#437d8b}body .subtitle{font-family:'Kreon',serif;font-weight:300;font-size:16px}
+body .section-separator{width:80%;margin-top:50px;color:#f0f0f0}body .custom-list{padding-left:17px}
+body .custom-list li{font-family:'Droid Sans',sans-serif;color:#929292}
+body .custom-list li a{color:#929292}.white-bg{background:#fff}.main-container{box-shadow:0 1px 5px 1px rgba(0,0,0,0.08);border:1px solid white;margin:30px auto}
 .fa{font-size:22px !important;transition:all ease-in-out .3s}.fa.social-icon{color:#e3e3e3;margin-right:5px}
-.fa:hover,.fa.social-icon:hover{color:#437d8b}header{color:#393939}header .top-nav{border-bottom:1px solid #cbcbcb;box-shadow:inset 4px 24px 60px -8px rgba(0,0,0,0.08);position:relative}
+.fa:hover,.fa.social-icon:hover{color:#437d8b}.logo-holder{display:inline-block;width:auto;transition:all ease-in-out .3s}
+.logo-holder:hover{cursor:pointer;text-decoration:none}.logo-holder:hover .logo-name{color:#393939}
+.logo-holder .logo-img{background:url(../../src/assets/images/logo.png) no-repeat;background-position:0 5px;background-size:42px 50px;display:inline-block;float:left;width:50px;height:55px}
+.logo-holder .logo-name{color:#393939;font-family:'BlackJack',cursive;font-weight:normal;font-size:32px;letter-spacing:2px;display:inline-block}
+.logo-holder .logo-slogan{color:#437d8b;text-transform:uppercase;margin:-10px 0 0 55px;letter-spacing:-0.5px}
+header{color:#393939}header .top-nav{border-bottom:1px solid #cbcbcb;box-shadow:inset 4px 24px 60px -8px rgba(0,0,0,0.08);position:relative}
 header .top-nav li a{padding-bottom:0;margin-top:15px}header .top-nav .navbar-default{background:0;border:0;margin-top:20px}
 header .top-nav .fixed-form{position:absolute;top:0;right:0}header .top-nav .icon-group{position:absolute;top:6px;left:-105px}
-header .top-nav .icon-group a{display:inline-block}header .top-nav .search-input{border:1px;border-style:solid;border-color:white white #cbcbcb #cbcbcb;border-radius:0;box-shadow:inset 3px 5px 32px 1px rgba(0,0,0,0.08);color:silver;font-family:"Georgia",serif;font-style:italic;position:relative;width:200px}
+header .top-nav .icon-group a{display:inline-block}header .top-nav .search-input{border:1px #cbcbcb;border-style:none none solid solid;border-radius:0;box-shadow:inset 3px 5px 32px 1px rgba(0,0,0,0.08);color:silver;font-family:"Georgia",serif;font-style:italic;position:relative;width:200px}
 header .top-nav .custom-search{position:absolute;top:10px;right:10px;color:silver}
-header .logo-holder{display:inline-block;width:auto;transition:all ease-in-out .3s}
-header .logo-holder:hover{cursor:pointer;text-decoration:none}header .logo-holder:hover .logo-name{color:#393939}
-header .logo-holder .logo-img{background:url(../../src/assets/images/logo.png) no-repeat;background-position:0 5px;background-size:42px 50px;display:inline-block;float:left;width:50px;height:55px}
-header .logo-holder .logo-name{color:#393939;font-family:'BlackJack',cursive;font-weight:normal;font-size:32px;letter-spacing:2px;display:inline-block}
-header .logo-holder .logo-slogan{color:#437d8b;text-transform:uppercase;margin:-10px 0 0 55px;letter-spacing:-0.5px}
 header .main-nav{background:url(../../src/assets/images/menu-pattern.jpg);box-shadow:inset 0 2px 9px 0 rgba(0,0,0,0.08)}
-header .main-nav a{text-transform:uppercase}.carousel.custom-carousel img{width:100%;object-fit:cover;height:400px !important}
+header .main-nav a{text-transform:uppercase}.carousel.custom-carousel img{object-fit:cover}
 .carousel.custom-carousel .carousel-indicators{bottom:-35px;margin-bottom:0}.carousel.custom-carousel .carousel-indicators li{width:10px;height:10px;background:#dfdfdf;border:2px solid #dfdfdf;transition:all ease-in-out .3s}
 .carousel.custom-carousel .carousel-indicators li:hover,.carousel.custom-carousel .carousel-indicators li.active{background-color:#1e1e1e}
 .carousel.custom-carousel .custom-chevron{position:absolute;height:44px;width:38px;display:block;top:178px}
@@ -26,5 +28,9 @@ header .main-nav a{text-transform:uppercase}.carousel.custom-carousel img{width:
 .carousel.custom-carousel .custom-chevron.custom-chevron-right{background:url("../../src/assets/images/carousel-arrow-right.png") no-repeat center;right:-6px}
 .carousel.custom-carousel .carousel-caption{left:initial;right:5%;top:15%;width:40%;height:70%;background:rgba(0,0,0,0.59);text-align:left;padding:5%}
 .carousel.custom-carousel .carousel-caption h2{font-size:28px;font-weight:100;margin-top:0}
-@media only screen and (max-device-width:1024px){.main-container{margin:10px}.custom-carousel.carousel .carousel-caption{width:90%}
-}
+.carousel.custom-carousel#home-carousel img{width:100%;height:400px}.carousel.custom-carousel#media-carousel img{width:100px;height:100px;float:left;margin-right:25px;border:1px solid #f0f0f0;padding:5px;box-shadow:1px 4px 6px 1px rgba(0,0,0,0.08)}
+.carousel.custom-carousel#media-carousel img:last-of-type{margin-right:0}.carousel.custom-carousel#media-carousel .custom-chevron{top:28px}
+.footer{background:#f9f9f9;padding:30px 30px 10px 30px;border-top:1px solid #cbcbcb;box-shadow:inset 1px 1px 1px 1px #fff;margin-top:40px}
+.footer h3{margin-top:10px}@media only screen and (max-device-width:1024px){.main-container{margin:10px}
+.custom-carousel.carousel .carousel-caption{width:90%}.categories-holder{text-align:center}
+.carousel.custom-carousel#media-carousel img{margin-right:10px}}

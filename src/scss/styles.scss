@@ -66,12 +66,38 @@ body {
   p {
     font-family: 'Droid Sans', sans-serif;
     color: $paragraph-color;
+    font-size: 14px;
   }
 
+  section {
+    margin-top: 40px;
+  }
+
+  .darker {
+    color: $link-active-color;
+  }
+  .subtitle{
+    font-family: 'Kreon', serif;
+    font-weight:300;
+    font-size:16px;
+  }
   .section-separator {
     width: 80%;
     margin-top: 50px;
     color: $separator-color;
+  }
+
+  .custom-list {
+    padding-left: 17px;
+
+    li {
+      font-family: 'Droid Sans', sans-serif;
+      color: $paragraph-color;
+
+      a {
+        color: $paragraph-color;
+      }
+    }
   }
 
 }
@@ -101,11 +127,53 @@ body {
   }
 }
 
-/*HEADER STYLES*/
+/*LOGO STYLES*/
+.logo-holder {
+  display:inline-block;
+  width:auto;
+  @include transition(0.3s);
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: none;
+
+    .logo-name {
+      color: $link-color;
+    }
+  }
+
+  .logo-img {
+    background: url(../../src/assets/images/logo.png) no-repeat;
+    background-position: 0 5px;
+    background-size: 42px 50px;
+    display: inline-block;
+    float: left;
+    width: 50px;
+    height: 55px;
+  }
+
+  .logo-name{
+    color: $link-color;
+    font-family: 'BlackJack',cursive;
+    font-weight: normal;
+    font-size: 32px;
+    letter-spacing: 2px;
+    display: inline-block;
+  }
+
+  .logo-slogan {
+    color: #437d8b;
+    text-transform: uppercase;
+    margin: -10px 0 0 55px;
+    letter-spacing: -0.5px;
+  }
+}
+
+/*HEADER STYLES START*/
 header {
   color: $link-color;
   .top-nav {
-    border-bottom: 1px solid #cbcbcb;
+    border-bottom: 1px solid $border-color;
     box-shadow: inset 4px 24px 60px -8px rgba(0, 0, 0, 0.08);
     position: relative;
 
@@ -137,9 +205,8 @@ header {
     }
 
     .search-input {
-      border: 1px;
-      border-style: solid;
-      border-color: white white #cbcbcb #cbcbcb;
+      border: 1px $border-color;
+      border-style: none none solid solid;
       border-radius: 0;
       box-shadow: inset 3px 5px 32px 1px rgba(0, 0, 0, 0.08);
       color: $glyphicon-color;
@@ -157,47 +224,6 @@ header {
     }
   }
 
-  .logo-holder {
-    display:inline-block;
-    width:auto;
-    @include transition(0.3s);
-
-    &:hover {
-      cursor: pointer;
-      text-decoration: none;
-
-      .logo-name {
-        color: $link-color;
-      }
-    }
-
-    .logo-img {
-      background: url(../../src/assets/images/logo.png) no-repeat;
-      background-position: 0 5px;
-      background-size: 42px 50px;
-      display: inline-block;
-      float: left;
-      width: 50px;
-      height: 55px;
-    }
-
-    .logo-name{
-      color: $link-color;
-      font-family: 'BlackJack',cursive;
-      font-weight: normal;
-      font-size: 32px;
-      letter-spacing: 2px;
-      display: inline-block;
-    }
-
-    .logo-slogan {
-      color: #437d8b;
-      text-transform: uppercase;
-      margin: -10px 0 0 55px;
-      letter-spacing: -0.5px;
-    }
-  }
-
   .main-nav {
     background: url(../../src/assets/images/menu-pattern.jpg);
     box-shadow: inset 0 2px 9px 0 rgba(0, 0, 0, 0.08);
@@ -210,9 +236,7 @@ header {
 
 .carousel.custom-carousel {
   img {
-    width: 100%;
     object-fit:cover;
-    height:400px!important;
   }
 
   .carousel-indicators {
@@ -266,8 +290,47 @@ header {
       font-weight: 100;
       margin-top: 0;
     }
+  }
 
+  &#home-carousel {
+    img {
+      width:100%;
+      height:400px;
+    }
+  }
 
+  &#media-carousel {
+    img {
+      width: 100px;
+      height: 100px;
+      float: left;
+      margin-right: 25px;
+      border: 1px solid #f0f0f0;
+      padding: 5px;
+      box-shadow: 1px 4px 6px 1px rgba(0, 0, 0, 0.08);
+
+      &:last-of-type {
+        margin-right:0;
+      }
+    }
+
+    .custom-chevron{
+      top: 28px;
+    }
+  }
+
+}
+
+/*FOOTER STYLES START*/
+.footer {
+  background: #f9f9f9;
+  padding: 30px 30px 10px 30px;
+  border-top: 1px solid $border-color;
+  box-shadow: inset 1px 1px 1px 1px #fff;
+  margin-top: 40px;
+
+  h3{
+    margin-top: 10px;
   }
 }
 
@@ -284,6 +347,15 @@ header {
     }
   }
 
+  .categories-holder{
+    text-align: center;
+  }
 
-
+  .carousel.custom-carousel{
+    &#media-carousel {
+      img {
+        margin-right:10px;
+      }
+    }
+  }
 }
