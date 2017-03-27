@@ -12,6 +12,10 @@ var  blogService = {
         return app.database.ref(`/posts/${key}`).once('value');
     },
 
+    getPostComments(key) {
+        return app.database.ref(`/comments/${key}`).once('value');
+    },
+
     createPost(title, category, content, headerImg) {
         console.log("USer: ", JSON.parse(localStorage.getItem('currentUser')));
         var post = {

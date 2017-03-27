@@ -37,9 +37,10 @@ header .main-nav a{text-transform:uppercase}.page-header{padding:0;margin:0;bord
 .carousel.custom-carousel#media-carousel img:last-of-type{margin-right:0}.carousel.custom-carousel#media-carousel .custom-chevron{top:28px}
 .single-post .post-meta{border:1px #f0f0f0;border-style:solid none solid}.single-post .post-meta p{font-family:'Kreon',serif;margin-bottom:0;padding:5px 0}
 .single-post .post-content{margin-top:20px}.single-post .post-content .btn{background:0;border:1px solid #cbcbcb;color:#1d1d1d;font-family:'Kreon',serif;float:right;padding:3px 10px;transition:all ease-in-out .3s}
-.single-post .post-content .btn:hover{color:#fff;background:#437d8b}.single-post .single-post-image.thumbnail{width:350px;height:250px;float:left}
+.single-post .post-content .btn:hover{color:#fff;background:#437d8b}.single-post .single-post-image.thumbnail{width:350px;height:250px;float:left;margin:0 20px 20px 0}
 .single-post .single-post-image.thumbnail img{width:100%;height:100%;object-fit:cover}
-.pagination.custom-pagination{display:block;float:right}.pagination.custom-pagination li a{color:#1d1d1d !important;border-color:#f0f0f0;transition:all ease-in-out .3s;border-radius:3px;margin-right:10px}
+#blog-single .single-post{margin-top:20px}.pagination.custom-pagination{display:block;float:right}
+.pagination.custom-pagination li a{color:#1d1d1d !important;border-color:#f0f0f0;transition:all ease-in-out .3s;border-radius:3px;margin-right:10px}
 .pagination.custom-pagination li:last-child a{margin-right:0}.pagination.custom-pagination li.active a,.pagination.custom-pagination li:hover a{background:#437d8b !important;color:#fff !important;border-color:#437d8b}
 .footer{background:#f9f9f9;padding:30px 30px 10px 30px;border-top:1px solid #cbcbcb;box-shadow:inset 1px 1px 1px 1px #fff;margin-top:40px}
 .footer h3{margin-top:10px}@media only screen and (max-device-width:1024px){.main-container{margin:10px}
