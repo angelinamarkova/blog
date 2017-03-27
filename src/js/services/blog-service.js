@@ -8,6 +8,10 @@ var  blogService = {
         return app.database.ref('/categories').once('value');
     },
 
+    getPostByKey(key) {
+        return app.database.ref(`/posts/${key}`).once('value');
+    },
+
     createPost(title, category, content, headerImg) {
         console.log("USer: ", JSON.parse(localStorage.getItem('currentUser')));
         var post = {

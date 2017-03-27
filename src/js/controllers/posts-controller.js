@@ -63,6 +63,7 @@ let blogControllers = {
 
                     data.categories = categories.val();
                     data.posts = posts.val();
+                        console.log(data);
                     blogHtml = blogCompiledTemplate(data);
                     headerHtml = pageHeaderCompiledTemplate(page);
                     sidebarHtml = sidebarCompiledTemplate();
@@ -70,7 +71,55 @@ let blogControllers = {
                     $('.page-header').html(headerHtml);
                     $('.sidebar').html(sidebarHtml);
                 });
-            }
+            },
+
+            blogSingle(key) {
+                Promise.all([
+                    blogService.getAllCategories(),
+                    blogService.getAllPosts(),
+                    blogService.getPostByKey(key.key),
+                    templates.get('blog-single'),
+                    templates.get('page-header'),
+                    templates.get('sidebar')
+                ])
+                    .then(([categories, posts, post, blogTemplate, pageHeaderTemplate, sidebarTemplate]) => {
+                        let blogCompiledTemplate = Handlebars.compile(blogTemplate),
+                            pageHeaderCompiledTemplate = Handlebars.compile(pageHeaderTemplate),
+                            sidebarCompiledTemplate = Handlebars.compile(sidebarTemplate),
+                            data = {},
+                            page = {},
+                            blogHtml, headerHtml, sidebarHtml;
+
+                        console.log("Data: ", data);
+                        data.categories = categories.val();
+                        data.posts = posts.val();
+                        data.post = post.val();
+                        page.title = data.post.title;
+                        page.subtitle = data.post.subtitle;
+                        page.breadcrumbs = [
+                            {
+                                url: "#/home",
+                                title: "Home"
+                            },
+                            {
+                                url: "#/blog",
+                                title: "Blog"
+                            },
+                            {
+                                url: `#/blog/${key.key}`,
+                                title: data.post.title
+                            }
+                        ];
+
+
+                        blogHtml = blogCompiledTemplate(data);
+                        headerHtml = pageHeaderCompiledTemplate(page);
+                        sidebarHtml = sidebarCompiledTemplate();
+                        $('#container').html(blogHtml);
+                        $('.page-header').html(headerHtml);
+                        $('.sidebar').html(sidebarHtml);
+                    });
+            },
         }
     }
 };

@@ -264,6 +264,10 @@ header {
         font-family: 'Kreon', serif;
         color: $link-active-color;
       }
+
+      a{
+        display:inline;
+      }
     }
   }
 }
@@ -383,6 +387,18 @@ header {
         color: #fff;
         background: $link-active-color;
       }
+    }
+  }
+
+  .single-post-image.thumbnail {
+    width: 350px;
+    height: 250px;
+    float: left;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 }
