@@ -28,10 +28,11 @@ let userControllerInstance = userControllers.get(userService, templates);
 let blogControllerInstance = blogControllers.get(blogService, templates);
 
 router.on({
+    "home": blogControllerInstance.home,
     "login": userControllerInstance.login,
     "signOut": userControllerInstance.signOut,
     "blog": blogControllerInstance.blogHome,
     "/": (() =>{
-        router.navigate("/blog")
+        router.navigate("/home")
     })
 }).resolve();

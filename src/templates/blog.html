@@ -1,0 +1,50 @@
+<article id="blog" class="clearfix">
+    <div class="col-sm-12">
+        <div class="page-header">
+
+        </div>
+    </div>
+    <div class="col-sm-9">
+        <div class="blog-list">
+            {{#each posts}}
+                <div class="single-post">
+                    <h3>{{title}}</h3>
+                    <div class="post-meta">
+                        <p>Posted by <span class="darker">{{author}}</span>
+                            on March 31, 2016 in <span class="darker">{{category}}</span>
+                            | 30 Comments
+                        </p>
+                    </div>
+                    <div class="post-content">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="thumbnail">
+                                    <a href="#/blog/{{key}}">
+                                        <img src="{{headerImg}}" alt="{{title}}">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <p>{{content}}</p>
+                                <button class="btn">Read More</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination pagination-sm custom-pagination clearfix">
+                <li class="active"><a href="#/blog?page=1">1</a></li>
+                <li><a href="#/blog?page=2">2</a></li>
+                <li><a href="#/blog?page=3">3</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="col-sm-3">
+        <aside class="sidebar">
+
+        </aside>
+    </div>
+</article>

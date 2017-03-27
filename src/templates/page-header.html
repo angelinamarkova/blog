@@ -1,0 +1,16 @@
+<div class="page-header-holder text-center">
+    <h1>{{this.title}}</h1>
+    <p class="subtitle">{{this.subtitle}}</p>
+</div>
+<div class="custom-breadcrumbs">
+    <ol class="breadcrumb">
+        {{#each this.breadcrumbs}}
+            {{#if @last}}
+                <li class="active">{{title}}</li>
+            {{else}}
+                <li><a href="#">{{title}}</a></li>
+            {{/if}}
+        {{/each}}
+    </ol>
+</div>
+

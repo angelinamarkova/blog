@@ -8,6 +8,7 @@
 @import url('https://fonts.googleapis.com/css?family=Kreon:300,400,700');
 
 /*GLOBAL VARIABLES START*/
+$heading-color: #1d1d1d;
 $link-color: #393939;
 $link-active-color: #437d8b;
 $border-color: #cbcbcb;
@@ -50,6 +51,9 @@ body {
 
   }
 
+  h1, h2, h3, h4, h5, h6 {
+    color: $heading-color;
+  }
   h1, h2, h3, h4, h5, h6, a, a *{
     font-family: 'Kreon', serif;
     font-weight: normal;
@@ -234,6 +238,36 @@ header {
   }
 }
 
+.page-header {
+  padding: 0;
+  margin: 0;
+  border: none;
+
+  .page-header-holder {
+    border: 1px $separator-color;
+    border-style: solid none solid;
+    padding-bottom: 10px;
+  }
+
+  .custom-breadcrumbs {
+    .breadcrumb {
+      background: none;
+      margin: 0;
+      padding-left: 0;
+
+      li + li:before {
+        color: $paragraph-color;
+        content: "\0000bb";
+      }
+
+      li.active {
+        font-family: 'Kreon', serif;
+        color: $link-active-color;
+      }
+    }
+  }
+}
+
 .carousel.custom-carousel {
   img {
     object-fit:cover;
@@ -319,6 +353,66 @@ header {
     }
   }
 
+}
+
+.single-post {
+  .post-meta {
+      border: 1px $separator-color;
+      border-style: solid none solid;
+
+      p {
+        font-family: 'Kreon',serif;
+        margin-bottom: 0;
+        padding: 5px 0;
+      }
+  }
+
+  .post-content {
+    margin-top: 20px;
+
+    .btn {
+      background: none;
+      border: 1px solid $border-color;
+      color: $heading-color;
+      font-family: 'Kreon', serif;
+      float: right;
+      padding: 3px 10px;
+      @include transition(0.3s);
+
+      &:hover {
+        color: #fff;
+        background: $link-active-color;
+      }
+    }
+  }
+}
+
+.pagination{
+  &.custom-pagination {
+    display: block;
+    float: right;
+
+    li {
+      a {
+        color: $heading-color !important;
+        border-color: $separator-color;
+        @include transition(0.3s);
+        border-radius: 3px;
+        margin-right: 10px;
+      }
+
+      &:last-child a{
+        margin-right: 0;
+      }
+
+      &.active a,
+      &:hover a{
+        background: $link-active-color!important;
+        color: #fff!important;
+        border-color: $link-active-color;
+      }
+    }
+  }
 }
 
 /*FOOTER STYLES START*/
