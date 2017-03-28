@@ -2,16 +2,40 @@ let blogControllers = {
     get( blogService, templates) {
 
         function postComments(postKey) {
-            Promise.all([
-                blogService.getPostComments(postKey),
-                templates.get('comments')
-            ])
-            .then(([comments, commentsTemplate]) => {
+            templates.get('comments')
+            .then( commentsTemplate => {
                 let commentsCompiledTemplate = Handlebars.compile(commentsTemplate),
-                    data = { comments: comments.val() },
-                    commentsHtml = commentsCompiledTemplate(data);
+                    data = { },
+                    commentsHtml, comment,
+                    $commentAuthorName, commentContent;
 
-                $('.post-comments').html(commentsHtml);
+                blogService.getPostComments(postKey)
+                .on('value', function(comments) {
+                    data.comments = comments.val();
+                    commentsHtml = commentsCompiledTemplate(data);
+                    $('.post-comments').html(commentsHtml);
+
+                    $('.btn-add-comment').click((event) => {
+
+                        $commentAuthorName = $('#name');
+                        commentContent = $('#message').val();
+
+                        console.log(JSON.parse(localStorage.getItem('currentUser')));
+
+                        comment = {
+                            authorKey: JSON.parse(localStorage.getItem('currentUser')).uid,
+                            authorName: JSON.parse(localStorage.getItem('currentUser')).displayName,
+                            authorEmail: JSON.parse(localStorage.getItem('currentUser')).email,
+                            authorImg: JSON.parse(localStorage.getItem('currentUser')).photoURL,
+                            content: commentContent
+                        };
+
+                        blogService.createComment(postKey, comment)
+                        .then((comment) => {
+                            console.log(`Comment: ${comment}`);
+                        });
+                    });
+                });
             });
         }
 

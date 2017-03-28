@@ -104,7 +104,49 @@ body {
     }
   }
 
-}
+  .btn-custom {
+    background: none;
+    border: 1px solid $border-color;
+    color: $heading-color;
+    font-family: 'Kreon', serif;
+    float: right;
+    padding: 5px 10px;
+    font-weight: 900;
+    @include transition(0.3s);
+
+    &:hover {
+      color: #fff;
+      background: $link-active-color;
+    }
+  }
+
+  .custom-input {
+    border: 1px $border-color;
+    border-style: none none solid solid;
+    border-radius: 0;
+    box-shadow: inset 3px 5px 32px 1px rgba(0, 0, 0, 0.08);
+    color: $glyphicon-color;
+    font-family: "Georgia", serif;
+    font-style: italic;
+
+    &.search-input {
+      position: relative;
+      width: 200px;
+    }
+
+    &.comment-input {
+      border: 1px #f0f0f0 solid;
+      box-shadow: inset 3px 5px 32px 1px rgba(0,0,0,0.08);
+      width: 300px;
+      padding: 20px;
+    }
+  }
+
+  textarea {
+    &.custom-textarea {
+      width: 100%!important;
+    }
+  }
 
 .white-bg {
   background: #fff;
@@ -206,18 +248,6 @@ header {
       a {
         display: inline-block;
       }
-    }
-
-    .search-input {
-      border: 1px $border-color;
-      border-style: none none solid solid;
-      border-radius: 0;
-      box-shadow: inset 3px 5px 32px 1px rgba(0, 0, 0, 0.08);
-      color: $glyphicon-color;
-      font-family: "Georgia", serif;
-      font-style: italic;
-      position: relative;
-      width: 200px;
     }
 
     .custom-search {
@@ -373,20 +403,6 @@ header {
 
   .post-content {
     margin-top: 20px;
-
-    .btn {
-      background: none;
-      border: 1px solid $border-color;
-      color: $heading-color;
-      font-family: 'Kreon', serif;
-      float: right;
-      padding: 3px 10px;
-      @include transition(0.3s);
-
-      &:hover {
-        color: #fff;
-        background: $link-active-color;
-      }
     }
   }
 
@@ -407,6 +423,56 @@ header {
 #blog-single {
   .single-post {
     margin-top: 20px;
+  }
+
+  .single-comment {
+    padding: 25px;
+    border: 1px solid $separator-color;
+    box-shadow: inset 0 1px 70px 18px #f9f9f9;
+    position: relative;
+    overflow: visible;
+    margin-bottom: 40px;
+    width: 80%;
+
+    &:after {
+      content: '';
+      display:block;
+      position:absolute;
+      bottom: -21px;
+      right: 5%;
+      width: 22px;
+      height: 22px;
+      background: url('../../src/assets/images/comment-arrow.png') no-repeat;
+      background-size: 22px;
+    }
+
+    img.media-object {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border: 1px solid $border-color;
+      border-radius: 3px;
+      padding: 3px;
+    }
+  }
+
+  .add-comment {
+    width: 80%;
+  }
+
+  .comment-date {
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    font-style: italic;
+    font-family: 'Georgia', serif;
+    color: $carousel-indicators-border;
+  }
+
+  .btn-read-more {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
   }
 }
 
@@ -475,4 +541,21 @@ header {
       }
     }
   }
+
+  #blog-single .single-comment {
+    width: 80%;
+
+    .add-comment {
+      width: 100%;
+    }
+
+    .comment-date {
+      top: 5px;
+    }
+
+    textarea.custom-textarea{
+      width:inherit!important;
+    }
+  }
+
 }

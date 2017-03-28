@@ -13,7 +13,7 @@ var  blogService = {
     },
 
     getPostComments(key) {
-        return app.database.ref(`/comments/${key}`).once('value');
+        return app.database.ref(`/comments/${key}`);
     },
 
     createPost(title, category, content, headerImg) {
@@ -28,6 +28,10 @@ var  blogService = {
 
         console.log(post);
         return firebase.database().ref().child('posts').push(post);
+    },
+
+    createComment (postKey, comment) {
+        return app.database.ref().child(`/comments/${postKey}`).push(comment);
     },
 
     createCategory(title, description, img) {
