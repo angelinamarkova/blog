@@ -371,6 +371,7 @@ header {
       font-size: 28px;
       font-weight: 100;
       margin-top: 0;
+      color: #fff;
     }
   }
 
@@ -515,6 +516,16 @@ header {
         border-color: $link-active-color;
       }
     }
+  }
+}
+
+#about-us {
+  h3, h4 {
+    margin-top: 40px;
+  }
+  .btn-custom {
+    float:none;
+    margin-top:40px;
   }
 }
 

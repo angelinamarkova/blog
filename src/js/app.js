@@ -34,8 +34,8 @@ router.on({
     "signOut": userControllerInstance.signOut,
     "blog": blogControllerInstance.blogHome,
     "blog/:key": blogControllerInstance.blogSingle,
-    "contact": generalControllerInstance.contact,
     "about": generalControllerInstance.about,
+    "contact": generalControllerInstance.contact,
     "/": (() =>{
         router.navigate("/home")
     })
