@@ -19,6 +19,7 @@ let blogControllers = {
 
                         $commentAuthorName = $('#name');
                         commentContent = $('#message').val();
+                        console.log("Local storage user: ", JSON.parse(localStorage.getItem('currentUser')));
                         comment = {
                             authorKey: JSON.parse(localStorage.getItem('currentUser')).uid,
                             authorName: JSON.parse(localStorage.getItem('currentUser')).displayName,

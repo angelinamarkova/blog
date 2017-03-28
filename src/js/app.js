@@ -18,11 +18,18 @@ firebase.initializeApp(app.config);
 app.database = firebase.database();
 app.provider = new firebase.auth.GoogleAuthProvider();
 
-if(JSON.parse(localStorage.getItem('currentUser')) !== null) {
-    app.currentUser = JSON.parse(localStorage.getItem('currentUser')) || {};
-} else {
-    app.currentUser = {};
-}
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+        $('.hidden-when-logged-in').addClass('hidden');
+        $('.visible-when-logged-in').removeClass('hidden');
+        window.location = "#/home";
+        localStorage.setItem('currentUser', JSON.stringify(user));
+    } else {
+        $('.hidden-when-logged-in').removeClass('hidden');
+        $('.visible-when-logged-in').addClass('hidden');
+        localStorage.removeItem('currentUser');
+    }
+});
 
 let generalControllerInstance = generalControllers.get(blogService, userService, templates);
 let userControllerInstance = userControllers.get(userService, templates);
@@ -31,7 +38,7 @@ let blogControllerInstance = blogControllers.get(blogService, templates);
 router.on({
     "home": generalControllerInstance.home,
     "login": userControllerInstance.login,
-    "signOut": userControllerInstance.signOut,
+    "logout": userControllerInstance.signOut,
     "blog": blogControllerInstance.blogHome,
     "blog/:key": blogControllerInstance.blogSingle,
     "about": generalControllerInstance.about,

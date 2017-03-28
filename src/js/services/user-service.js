@@ -1,10 +1,6 @@
 var userService = {
     isSignedIn() {
-        return Promise.resolve()
-            .then(() => {
-                return JSON.parse(localStorage.getItem('currentUser')) !== null;
-            });
-
+        return JSON.parse(localStorage.getItem('currentUser')) !== null;
     },
 
     signIn() {
