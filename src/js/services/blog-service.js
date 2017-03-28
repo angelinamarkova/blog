@@ -12,6 +12,21 @@ var  blogService = {
         return app.database.ref(`/posts/${key}`).once('value');
     },
 
+    getPostsByCategory(category) {
+        var tmp;
+        tmp = localStorage.getItem("categories");
+        tmp = (tmp === null) ? [] : JSON.parse(tmp);
+
+        app.database.ref(`/posts`).orderByChild(`category`).equalTo(category).once('value')
+        .then((posts) => {
+            posts.forEach( post => {
+                tmp.push(post.val());
+            });
+        });
+        localStorage.setItem(`categories`, JSON.stringify(tmp));
+        return JSON.stringify(tmp);
+    },
+
     getPostComments(key) {
         return app.database.ref(`/comments/${key}`);
     },
