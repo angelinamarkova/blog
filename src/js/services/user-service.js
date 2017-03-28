@@ -13,5 +13,9 @@ var userService = {
 
     signOut() {
         return firebase.auth().signOut();
+    },
+
+    sendMessage(message) {
+        return app.database.ref().child(`/messages`).push(message);
     }
 };

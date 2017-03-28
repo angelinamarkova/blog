@@ -24,15 +24,18 @@ if(JSON.parse(localStorage.getItem('currentUser')) !== null) {
     app.currentUser = {};
 }
 
+let generalControllerInstance = generalControllers.get(blogService, userService, templates);
 let userControllerInstance = userControllers.get(userService, templates);
 let blogControllerInstance = blogControllers.get(blogService, templates);
 
 router.on({
-    "home": blogControllerInstance.home,
+    "home": generalControllerInstance.home,
     "login": userControllerInstance.login,
     "signOut": userControllerInstance.signOut,
     "blog": blogControllerInstance.blogHome,
     "blog/:key": blogControllerInstance.blogSingle,
+    "contact": generalControllerInstance.contact,
+    "about": generalControllerInstance.about,
     "/": (() =>{
         router.navigate("/home")
     })
