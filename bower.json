@@ -1,14 +1,10 @@
 {
-  "name": "CarStore",
-  "homepage": "https://github.com/Team-Suicide-Squad/Car-Store",
+  "name": "blog",
+  "homepage": "https://github.com/anelinamarkoba/blog",
   "authors": [
-    "marianamn",
-    "Warez-VD",
-    "Boriow",
-    "Kantonov",
-    "milen.dobrinov"
+    "angelinamarkova"
   ],
-  "description": "teamwork",
+  "description": "Final Project for Telerik Academy, Web Front-end Track",
   "main": "./js/main.js",
   "license": "MIT",
   "ignore": [

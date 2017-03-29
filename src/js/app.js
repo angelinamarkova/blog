@@ -22,12 +22,13 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         $('.hidden-when-logged-in').addClass('hidden');
         $('.visible-when-logged-in').removeClass('hidden');
-        //window.location = "#/home";
         localStorage.setItem('currentUser', JSON.stringify(user));
+        toastr.info(`What's shaking ${user.displayName}`);
     } else {
         $('.hidden-when-logged-in').removeClass('hidden');
         $('.visible-when-logged-in').addClass('hidden');
         localStorage.removeItem('currentUser');
+        toastr.info(`Ohh, you just logged out. Hope to see you soon!`);
     }
 });
 
@@ -35,11 +36,12 @@ let generalControllerInstance = generalControllers.get(blogService, userService,
 let userControllerInstance = userControllers.get(userService, templates);
 let blogControllerInstance = blogControllers.get(blogService, templates);
 
+generalControllerInstance.footer();
+
 router.on({
     "home": generalControllerInstance.home,
     "login": userControllerInstance.login,
     "logout": userControllerInstance.signOut,
-    //"blog/:searchKey": blogControllerInstance.search,
     "blog/single/:key": blogControllerInstance.blogSingle,
     "blog": blogControllerInstance.blogHome,
     "about": generalControllerInstance.about,
@@ -49,10 +51,11 @@ router.on({
     })
 }).resolve();
 
+
+
 $('.search-input').on('keyup', function (e) {
     if (e.keyCode == 13) {
         var searchValue = $('.search-input').val();
-        console.log(searchValue);
         window.location = `#/blog/?search=${searchValue}`;
     }
 });

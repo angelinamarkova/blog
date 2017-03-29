@@ -30,14 +30,10 @@ var  blogService = {
     getPostComments(key) {
         return app.database.ref(`/comments/${key}`);
     },
-    //
-    //getPostsBySearch(searchValue) {
-    //    return app.database.ref('/posts').once('value', (posts) => {
-    //        return posts.filter((post) => {
-    //            return post.title.includes(searchValue)
-    //        })
-    //    })
-    //},
+
+    getLastComment() {
+        return app.database.ref(`/comments`).orderByChild('timestamp').limitToLast(1).once("child_added");
+    },
 
     createPost(title, category, content, headerImg) {
         console.log("USer: ", JSON.parse(localStorage.getItem('currentUser')));

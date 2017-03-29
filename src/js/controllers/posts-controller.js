@@ -24,14 +24,15 @@ let blogControllers = {
                             authorName: JSON.parse(localStorage.getItem('currentUser')).displayName,
                             authorEmail: JSON.parse(localStorage.getItem('currentUser')).email,
                             authorImg: JSON.parse(localStorage.getItem('currentUser')).photoURL,
-                            content: commentContent
+                            content: commentContent,
+                            timestamp: firebase.database.ServerValue.TIMESTAMP
                         };
 
                         blogService.createComment(postKey, comment)
                         .then((comment) => {
-
+                            toastr.info("Thanks for your comment");
                         })
-                        .catch((error) => console.log(error));
+                        .catch((error) => toastr.info("Comment could not be posted"));
                     });
                 });
             });

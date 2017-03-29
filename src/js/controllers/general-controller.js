@@ -1,6 +1,28 @@
 let generalControllers = {
     get( blogService, userService, templates) {
         return {
+            footer() {
+                Promise.all([
+                    blogService.getAllCategories(),
+                    blogService.getAllPosts(),
+                    blogService.getLastComment(),
+                    templates.get('footer')
+                ])
+                .then(([categories, posts, lastComment, template]) => {
+                    let compiledTemplate = Handlebars.compile(template),
+                        data = {},
+                        html;
+
+                    data.categories = categories.val();
+                    data.posts = posts.val();
+                    data.lastComment = lastComment.val();
+                    console.log("Footer: ", data);
+                    html = compiledTemplate(data);
+                    $('footer').html(html);
+                })
+                .catch((error) => console.log(error));
+            },
+
             home() {
                 Promise.all([
                     blogService.getAllCategories(),
@@ -79,10 +101,10 @@ let generalControllers = {
 
                         userService.sendMessage(comment)
                         .then((message) => {
-                            console.log(`Message: ${message}`);
+                            toastr.info('Message was sent successfully!');
                         })
                         .catch ((error) => {
-                            console.log(`Could not send message: ${error}`);
+                            toastr.error('Message was not sent successfully!');
                         });
                     });
                 });
