@@ -132,6 +132,7 @@ body {
     &.search-input {
       position: relative;
       width: 200px;
+      margin:auto;
     }
 
     &.comment-input {
@@ -139,6 +140,7 @@ body {
       box-shadow: inset 3px 5px 32px 1px rgba(0,0,0,0.08);
       width: 300px;
       padding: 20px;
+      margin: auto;
     }
   }
 
@@ -569,19 +571,26 @@ header {
       }
     }
 
-    #blog-single .single-comment {
-      width: 80%;
+    #blog-single {
+      .single-comment {
+        width: 100%;
+
+        .comment-date {
+          top: 5px;
+        }
+
+        textarea.custom-textarea{
+          width:inherit!important;
+        }
+      }
 
       .add-comment {
         width: 100%;
+        margin-bottom: 40px;
       }
 
-      .comment-date {
-        top: 5px;
-      }
-
-      textarea.custom-textarea{
-        width:inherit!important;
+      .single-post-image.thumbnail {
+        width:100%;
       }
     }
 
@@ -591,6 +600,7 @@ header {
 
     .custom-input.comment-input {
       width:100%;
+      margin: auto;
     }
   }
 }

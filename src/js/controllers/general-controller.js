@@ -38,6 +38,9 @@ let generalControllers = {
                     data.posts = posts.val();
                     html = compiledTemplate(data);
                     $('#container').html(html);
+
+                    $('.main-nav li.active').removeClass('active');
+                    $('a[href^="#/home"]').parent('li').addClass('active');
                 })
                 .catch((error) => console.log(error));
             },
@@ -63,6 +66,9 @@ let generalControllers = {
 
                     $('#container').html(aboutHtml);
                     $('.page-header').html(headerHtml);
+
+                    $('.main-nav li.active').removeClass('active');
+                    $('a[href^="#/about"]').parent('li').addClass('active');
                 })
                 .catch((error) => console.log(error));
             },
@@ -89,6 +95,9 @@ let generalControllers = {
                     $('#container').html(contactHtml);
                     $('.page-header').html(headerHtml);
 
+                    $('.main-nav li.active').removeClass('active');
+                    $('a[href^="#/contact"]').parent('li').addClass('active');
+
                     $('.btn-add-comment').click((event) => {
                         var commentContent = $('#message').val(),
                         comment = {
@@ -101,7 +110,7 @@ let generalControllers = {
 
                         userService.sendMessage(comment)
                         .then((message) => {
-                            toastr.info('Message was sent successfully!');
+                            toastr.info('Thank you for contacting us!');
                         })
                         .catch ((error) => {
                             toastr.error('Message was not sent successfully!');

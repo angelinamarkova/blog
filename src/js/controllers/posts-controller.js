@@ -77,6 +77,9 @@ let blogControllers = {
                         $('#container').html(blogHtml);
                         $('.page-header').html(headerHtml);
                         $('.sidebar').html(sidebarHtml);
+
+                        $('.main-nav li.active').removeClass('active');
+                        $('a[href^="#/blog"]').parent('li').addClass('active');
                         dbRef.off();
                     });
                 });
@@ -115,6 +118,9 @@ let blogControllers = {
                         $('#container').html(blogHtml);
                         $('.page-header').html(headerHtml);
                         $('.sidebar').html(sidebarHtml);
+
+                        $('.main-nav li.active').removeClass('active');
+                        $('a[href^="#/blog"]').parent('li').addClass('active');
                     })
                     .catch((error) => console.log(error));
                 }
@@ -154,6 +160,9 @@ let blogControllers = {
                     $('#container').html(blogHtml);
                     $('.page-header').html(headerHtml);
                     $('.sidebar').html(sidebarHtml);
+
+                    $('.main-nav li.active').removeClass('active');
+                    $('a[href^="#/blog"]').parent('li').addClass('active');
 
                     postComments(key.key);
                 })

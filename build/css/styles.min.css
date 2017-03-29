@@ -9,7 +9,7 @@ body .section-separator{width:80%;margin-top:50px;color:#f0f0f0}body .custom-lis
 body .custom-list li{font-family:'Droid Sans',sans-serif;color:#929292}
 body .custom-list li a{color:#929292}body .btn-custom{background:0;border:1px solid #cbcbcb;color:#1d1d1d;font-family:'Kreon',serif;float:right;padding:5px 10px;font-weight:900;transition:all ease-in-out .3s}
 body .btn-custom:hover{color:#fff;background:#437d8b}body .custom-input{border:1px #cbcbcb;border-style:none none solid solid;border-radius:0;box-shadow:inset 3px 5px 32px 1px rgba(0,0,0,0.08);color:silver;font-family:"Georgia",serif;font-style:italic}
-body .custom-input.search-input{position:relative;width:200px}body .custom-input.comment-input{border:1px #f0f0f0 solid;box-shadow:inset 3px 5px 32px 1px rgba(0,0,0,0.08);width:300px;padding:20px}
+body .custom-input.search-input{position:relative;width:200px;margin:auto}body .custom-input.comment-input{border:1px #f0f0f0 solid;box-shadow:inset 3px 5px 32px 1px rgba(0,0,0,0.08);width:300px;padding:20px;margin:auto}
 body textarea.custom-textarea{width:100% !important}body .white-bg{background:#fff}
 body .main-container{box-shadow:0 1px 5px 1px rgba(0,0,0,0.08);border:1px solid white;margin:30px auto}
 body .fa{font-size:22px !important;transition:all ease-in-out .3s}body .fa.social-icon{color:#e3e3e3;margin-right:5px}
@@ -55,8 +55,8 @@ body .single-post-image.thumbnail img{width:100%;height:100%;object-fit:cover}#b
 .footer{background:#f9f9f9;padding:30px 30px 10px 30px;border-top:1px solid #cbcbcb;box-shadow:inset 1px 1px 1px 1px #fff;margin-top:40px}
 .footer h3{margin-top:10px}@media only screen and (max-device-width:1024px){body .main-container{margin:10px}
 body .custom-carousel.carousel .carousel-caption{width:90%}body .categories-holder{text-align:center}
-body .carousel.custom-carousel#media-carousel img{margin-right:10px}body #blog-single .single-comment{width:80%}
-body #blog-single .single-comment .add-comment{width:100%}body #blog-single .single-comment .comment-date{top:5px}
-body #blog-single .single-comment textarea.custom-textarea{width:inherit !important}
-body .google-maps{padding-bottom:50%}body .custom-input.comment-input{width:100%}
+body .carousel.custom-carousel#media-carousel img{margin-right:10px}body #blog-single .single-comment{width:100%}
+body #blog-single .single-comment .comment-date{top:5px}body #blog-single .single-comment textarea.custom-textarea{width:inherit !important}
+body #blog-single .add-comment{width:100%;margin-bottom:40px}body #blog-single .single-post-image.thumbnail{width:100%}
+body .google-maps{padding-bottom:50%}body .custom-input.comment-input{width:100%;margin:auto}
 }
