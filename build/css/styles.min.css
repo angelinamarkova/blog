@@ -9,7 +9,7 @@ body .section-separator{width:80%;margin-top:50px;color:#f0f0f0}body .custom-lis
 body .custom-list li{font-family:'Droid Sans',sans-serif;color:#929292}
 body .custom-list li a{color:#929292}body .btn-custom{background:0;border:1px solid #cbcbcb;color:#1d1d1d;font-family:'Kreon',serif;float:right;padding:5px 10px;font-weight:900;transition:all ease-in-out .3s}
 body .btn-custom:hover{color:#fff;background:#437d8b}body .custom-input{border:1px #cbcbcb;border-style:none none solid solid;border-radius:0;box-shadow:inset 3px 5px 32px 1px rgba(0,0,0,0.08);color:silver;font-family:"Georgia",serif;font-style:italic}
-body .custom-input.search-input{position:relative;width:200px;margin:auto}body .custom-input.comment-input{border:1px #f0f0f0 solid;box-shadow:inset 3px 5px 32px 1px rgba(0,0,0,0.08);width:300px;padding:20px;margin:auto}
+body .custom-input.search-input{position:relative;width:200px;margin:auto}body .custom-input.comment-input{border:1px #f0f0f0 solid;box-shadow:inset 3px 5px 32px 1px rgba(0,0,0,0.08);width:300px;padding:20px}
 body textarea.custom-textarea{width:100% !important}body .white-bg{background:#fff}
 body .main-container{box-shadow:0 1px 5px 1px rgba(0,0,0,0.08);border:1px solid white;margin:30px auto}
 body .fa{font-size:22px !important;transition:all ease-in-out .3s}body .fa.social-icon{color:#e3e3e3;margin-right:5px}

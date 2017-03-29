@@ -16,7 +16,6 @@ let generalControllers = {
                     data.categories = categories.val();
                     data.posts = posts.val();
                     data.lastComment = lastComment.val();
-                    console.log("Footer: ", data);
                     html = compiledTemplate(data);
                     $('footer').html(html);
                     window.scrollTo(0, 0);
