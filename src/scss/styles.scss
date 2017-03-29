@@ -423,17 +423,25 @@ header {
     }
   }
 
-  .single-post-image.thumbnail {
-    width: 350px;
-    height: 250px;
-    float: left;
-    margin: 0 20px 20px 0;
+.single-post-image.thumbnail {
+  width: 350px;
+  height: 250px;
+  float: left;
+  margin: 0 20px 20px 0;
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+}
+
+.categories-holder {
+  .thumbnail img {
+    width:100%;
+    height:220px;
+    object-fit:cover;
   }
 }
 

@@ -43,8 +43,8 @@ body .carousel.custom-carousel#home-carousel img{width:100%;height:400px}body .c
 body .carousel.custom-carousel#media-carousel img:last-of-type{margin-right:0}body .carousel.custom-carousel#media-carousel .custom-chevron{top:28px}
 body .single-post .post-meta{border:1px #f0f0f0;border-style:solid none solid}body .single-post .post-meta p{font-family:'Kreon',serif;margin-bottom:0;padding:5px 0}
 body .single-post .post-content{margin-top:20px}body .single-post-image.thumbnail{width:350px;height:250px;float:left;margin:0 20px 20px 0}
-body .single-post-image.thumbnail img{width:100%;height:100%;object-fit:cover}#blog-single .single-post{margin-top:20px}
-#blog-single .single-comment{padding:25px;border:1px solid #f0f0f0;box-shadow:inset 0 1px 70px 18px #f9f9f9;position:relative;overflow:visible;margin-bottom:40px;width:80%}
+body .single-post-image.thumbnail img{width:100%;height:100%;object-fit:cover}.categories-holder .thumbnail img{width:100%;height:220px;object-fit:cover}
+#blog-single .single-post{margin-top:20px}#blog-single .single-comment{padding:25px;border:1px solid #f0f0f0;box-shadow:inset 0 1px 70px 18px #f9f9f9;position:relative;overflow:visible;margin-bottom:40px;width:80%}
 #blog-single .single-comment:after{content:'';display:block;position:absolute;bottom:-21px;right:5%;width:22px;height:22px;background:url("../../src/assets/images/comment-arrow.png") no-repeat;background-size:22px}
 #blog-single .single-comment img.media-object{width:100px;height:100px;object-fit:cover;border:1px solid #cbcbcb;border-radius:3px;padding:3px}
 #blog-single .add-comment{width:80%}#blog-single .comment-date{position:absolute;right:25px;top:25px;font-style:italic;font-family:'Georgia',serif;color:#dfdfdf}
