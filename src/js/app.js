@@ -22,7 +22,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         $('.hidden-when-logged-in').addClass('hidden');
         $('.visible-when-logged-in').removeClass('hidden');
-        window.location = "#/home";
+        //window.location = "#/home";
         localStorage.setItem('currentUser', JSON.stringify(user));
     } else {
         $('.hidden-when-logged-in').removeClass('hidden');
@@ -39,11 +39,20 @@ router.on({
     "home": generalControllerInstance.home,
     "login": userControllerInstance.login,
     "logout": userControllerInstance.signOut,
+    //"blog/:searchKey": blogControllerInstance.search,
+    "blog/single/:key": blogControllerInstance.blogSingle,
     "blog": blogControllerInstance.blogHome,
-    "blog/:key": blogControllerInstance.blogSingle,
     "about": generalControllerInstance.about,
     "contact": generalControllerInstance.contact,
     "/": (() =>{
         router.navigate("/home")
     })
 }).resolve();
+
+$('.search-input').on('keyup', function (e) {
+    if (e.keyCode == 13) {
+        var searchValue = $('.search-input').val();
+        console.log(searchValue);
+        window.location = `#/blog/?search=${searchValue}`;
+    }
+});

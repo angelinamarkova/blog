@@ -30,6 +30,14 @@ var  blogService = {
     getPostComments(key) {
         return app.database.ref(`/comments/${key}`);
     },
+    //
+    //getPostsBySearch(searchValue) {
+    //    return app.database.ref('/posts').once('value', (posts) => {
+    //        return posts.filter((post) => {
+    //            return post.title.includes(searchValue)
+    //        })
+    //    })
+    //},
 
     createPost(title, category, content, headerImg) {
         console.log("USer: ", JSON.parse(localStorage.getItem('currentUser')));

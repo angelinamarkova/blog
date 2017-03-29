@@ -38,45 +38,76 @@ let blogControllers = {
             });
         }
 
+        function search(searchValue) {
+            searchValue = searchValue.split('=')[1];
+
+            Promise.all([
+                templates.get('blog'),
+                templates.get('page-header'),
+                templates.get('sidebar')
+            ])
+                .then(([blogTemplate, pageHeaderTemplate, sidebarTemplate]) => {
+                    const dbRef = firebase.database().ref('posts');
+                    var query = dbRef.orderByChild("title_lower").startAt(searchValue).endAt(searchValue + "\uf8ff");
+                    query.once("value", function (snapshot) {
+                        var data = {
+                            posts: snapshot.val(),
+                            page: BLOG_HOME_PAGE_DATA_SEARCH
+                        };
+                        data.page.searchValue = searchValue;
+
+                        var blogCompiledTemplate = Handlebars.compile(blogTemplate),
+                            pageHeaderCompiledTemplate = Handlebars.compile(pageHeaderTemplate),
+                            sidebarCompiledTemplate = Handlebars.compile(sidebarTemplate);
+
+                        var blogHtml = blogCompiledTemplate(data),
+                            headerHtml = pageHeaderCompiledTemplate(data.page),
+                            sidebarHtml = sidebarCompiledTemplate();
+
+                        $('#container').html(blogHtml);
+                        $('.page-header').html(headerHtml);
+                        $('.sidebar').html(sidebarHtml);
+                        dbRef.off();
+                    });
+                });
+        }
+
         return {
             blogHome() {
-                Promise.all([
-                    blogService.getAllCategories(),
-                    blogService.getAllPosts(),
-                    templates.get('blog'),
-                    templates.get('page-header'),
-                    templates.get('sidebar')
-                ])
-                .then(([categories, posts, blogTemplate, pageHeaderTemplate, sidebarTemplate]) => {
-                    let blogCompiledTemplate = Handlebars.compile(blogTemplate),
-                        pageHeaderCompiledTemplate = Handlebars.compile(pageHeaderTemplate),
-                        sidebarCompiledTemplate = Handlebars.compile(sidebarTemplate),
-                        data = {},
-                        page = {},
-                        blogHtml, headerHtml, sidebarHtml;
+                if(arguments[1].indexOf('search') > -1) {
+                    search(arguments[1]);
+                } else {
+                    Promise.all([
+                        blogService.getAllCategories(),
+                        blogService.getAllPosts(),
+                        templates.get('blog'),
+                        templates.get('page-header'),
+                        templates.get('sidebar')
+                    ])
+                    .then(([categories, posts, blogTemplate, pageHeaderTemplate, sidebarTemplate]) => {
+                        let blogCompiledTemplate = Handlebars.compile(blogTemplate),
+                            pageHeaderCompiledTemplate = Handlebars.compile(pageHeaderTemplate),
+                            sidebarCompiledTemplate = Handlebars.compile(sidebarTemplate),
+                            data = {}, page = BLOG_HOME_PAGE_DATA,
+                            blogHtml, headerHtml, sidebarHtml;
 
-                    page.title = "Blog Home";
-                    page.subtitle = "Blog Subtitle";
-                    page.breadcrumbs = [
-                        {
-                            url: "/home",
-                            title: "Home"
-                        },
-                        {
-                            title: "Blog"
-                        }
-                    ];
-                    data.categories = categories.val();
-                    data.posts = posts.val();
+                        setLocalStorageItem('pageHeaderTemplate', blogTemplate);
+                        setLocalStorageItem('blogHomeTemplate', pageHeaderTemplate);
+                        setLocalStorageItem('sidebarTemplate', sidebarTemplate);
 
-                    blogHtml = blogCompiledTemplate(data);
-                    headerHtml = pageHeaderCompiledTemplate(page);
-                    sidebarHtml = sidebarCompiledTemplate();
-                    $('#container').html(blogHtml);
-                    $('.page-header').html(headerHtml);
-                    $('.sidebar').html(sidebarHtml);
-                })
-                .catch((error) => console.log(error));
+                        data.categories = categories.val();
+                        data.posts = posts.val();
+
+                        blogHtml = blogCompiledTemplate(data);
+                        headerHtml = pageHeaderCompiledTemplate(page);
+                        sidebarHtml = sidebarCompiledTemplate();
+                        $('#container').html(blogHtml);
+                        $('.page-header').html(headerHtml);
+                        $('.sidebar').html(sidebarHtml);
+                    })
+                    .catch((error) => console.log(error));
+                }
+
             },
 
             blogSingle(key) {
