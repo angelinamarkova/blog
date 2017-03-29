@@ -6,33 +6,37 @@
     </div>
     <div class="col-sm-9">
         <div class="blog-list">
-            {{#each posts}}
-                <div class="single-post">
-                    <h3>{{title}}</h3>
-                    <div class="post-meta">
-                        <p>Posted by <span class="darker">{{author}}</span>
-                            on March 31, 2016 in <span class="darker">{{category}}</span>
-                            | 30 Comments
-                        </p>
-                    </div>
-                    <div class="post-content">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <div class="thumbnail">
-                                    <a href="#/blog/single/{{@key}}">
-                                        <img src="{{headerImg}}" alt="{{title}}">
-                                    </a>
+            {{#if posts}}
+                {{#each posts}}
+                    <div class="single-post">
+                        <h3>{{title}}</h3>
+                        <div class="post-meta">
+                            <p>Posted by <span class="darker">{{author}}</span>
+                                on March 31, 2016 in <span class="darker">{{category}}</span>
+                                | 30 Comments
+                            </p>
+                        </div>
+                        <div class="post-content">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="thumbnail">
+                                        <a href="#/blog/single/{{@key}}">
+                                            <img src="{{headerImg}}" alt="{{title}}">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-8">
+                                    <p>{{content}}</p>
+                                    <a href="#/blog/single/{{@key}}" class="btn btn-custom">Read More</a>
                                 </div>
                             </div>
-                            <div class="col-sm-8">
-                                <p>{{content}}</p>
-                                <a href="#/blog/single/{{@key}}" class="btn btn-custom">Read More</a>
-                            </div>
-                        </div>
 
+                        </div>
                     </div>
-                </div>
-            {{/each}}
+                {{/each}}
+            {{else}}
+                <h4>Sorry there were no posts found.</h4>
+            {{/if}}
         </div>
         <nav aria-label="Page navigation">
             <ul class="pagination pagination-sm custom-pagination clearfix">

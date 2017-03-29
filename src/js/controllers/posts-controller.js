@@ -19,7 +19,6 @@ let blogControllers = {
 
                         $commentAuthorName = $('#name');
                         commentContent = $('#message').val();
-                        console.log("Local storage user: ", JSON.parse(localStorage.getItem('currentUser')));
                         comment = {
                             authorKey: JSON.parse(localStorage.getItem('currentUser')).uid,
                             authorName: JSON.parse(localStorage.getItem('currentUser')).displayName,
@@ -30,7 +29,7 @@ let blogControllers = {
 
                         blogService.createComment(postKey, comment)
                         .then((comment) => {
-                            console.log(`Comment: ${comment}`);
+
                         })
                         .catch((error) => console.log(error));
                     });
@@ -38,8 +37,17 @@ let blogControllers = {
             });
         }
 
-        function search(searchValue) {
-            searchValue = searchValue.split('=')[1];
+        function search(searchParameter, searchValue) {
+            let page = {};
+
+            if(searchParameter == "search") {
+                searchParameter = "title_lower";
+                page = BLOG_HOME_PAGE_DATA_SEARCH;
+            } else if (searchParameter == "category") {
+                page = BLOG_HOME_CATEGORY;
+                page.title = `${searchValue} Category`;
+                page.breadcrumbs[2].title = searchValue;
+            }
 
             Promise.all([
                 templates.get('blog'),
@@ -48,11 +56,12 @@ let blogControllers = {
             ])
                 .then(([blogTemplate, pageHeaderTemplate, sidebarTemplate]) => {
                     const dbRef = firebase.database().ref('posts');
-                    var query = dbRef.orderByChild("title_lower").startAt(searchValue).endAt(searchValue + "\uf8ff");
+                    var query = dbRef.orderByChild(searchParameter).startAt(searchValue).endAt(searchValue + "\uf8ff");
                     query.once("value", function (snapshot) {
                         var data = {
                             posts: snapshot.val(),
-                            page: BLOG_HOME_PAGE_DATA_SEARCH
+                            page: page,
+                            categories: JSON.parse(getLocalStorageItem('categories'))
                         };
                         data.page.searchValue = searchValue;
 
@@ -62,7 +71,7 @@ let blogControllers = {
 
                         var blogHtml = blogCompiledTemplate(data),
                             headerHtml = pageHeaderCompiledTemplate(data.page),
-                            sidebarHtml = sidebarCompiledTemplate();
+                            sidebarHtml = sidebarCompiledTemplate(data);
 
                         $('#container').html(blogHtml);
                         $('.page-header').html(headerHtml);
@@ -74,8 +83,11 @@ let blogControllers = {
 
         return {
             blogHome() {
-                if(arguments[1].indexOf('search') > -1) {
-                    search(arguments[1]);
+                if(arguments[1]) {
+                    let searchParameter = arguments[1].split('=')[0],
+                        searchValue = arguments[1].split('=')[1];
+
+                    search(searchParameter, searchValue);
                 } else {
                     Promise.all([
                         blogService.getAllCategories(),
@@ -91,16 +103,14 @@ let blogControllers = {
                             data = {}, page = BLOG_HOME_PAGE_DATA,
                             blogHtml, headerHtml, sidebarHtml;
 
-                        setLocalStorageItem('pageHeaderTemplate', blogTemplate);
-                        setLocalStorageItem('blogHomeTemplate', pageHeaderTemplate);
-                        setLocalStorageItem('sidebarTemplate', sidebarTemplate);
+                        setLocalStorageItem('categories', JSON.stringify(categories.val()));
 
                         data.categories = categories.val();
                         data.posts = posts.val();
 
                         blogHtml = blogCompiledTemplate(data);
                         headerHtml = pageHeaderCompiledTemplate(page);
-                        sidebarHtml = sidebarCompiledTemplate();
+                        sidebarHtml = sidebarCompiledTemplate(data);
                         $('#container').html(blogHtml);
                         $('.page-header').html(headerHtml);
                         $('.sidebar').html(sidebarHtml);
@@ -124,7 +134,7 @@ let blogControllers = {
                         pageHeaderCompiledTemplate = Handlebars.compile(pageHeaderTemplate),
                         sidebarCompiledTemplate = Handlebars.compile(sidebarTemplate),
                         data = {},
-                        page = {},
+                        page = BLOG_SINGLE_PAGE_DATA,
                         blogHtml, headerHtml, sidebarHtml;
 
                     data.categories = categories.val();
@@ -132,24 +142,14 @@ let blogControllers = {
                     data.post = post.val();
                     page.title = data.post.title;
                     page.subtitle = data.post.subtitle;
-                    page.breadcrumbs = [
-                        {
-                            url: "#/home",
-                            title: "Home"
-                        },
-                        {
-                            url: "#/blog",
-                            title: "Blog"
-                        },
-                        {
+                    page.breadcrumbs[2]= {
                             url: `#/blog/${key.key}`,
                             title: data.post.title
-                        }
-                    ];
+                        };
 
                     blogHtml = blogCompiledTemplate(data);
                     headerHtml = pageHeaderCompiledTemplate(page);
-                    sidebarHtml = sidebarCompiledTemplate();
+                    sidebarHtml = sidebarCompiledTemplate(data);
                     $('#container').html(blogHtml);
                     $('.page-header').html(headerHtml);
                     $('.sidebar').html(sidebarHtml);
