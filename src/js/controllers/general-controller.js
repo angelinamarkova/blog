@@ -19,6 +19,7 @@ let generalControllers = {
                     console.log("Footer: ", data);
                     html = compiledTemplate(data);
                     $('footer').html(html);
+                    window.scrollTo(0, 0);
                 })
                 .catch((error) => console.log(error));
             },
@@ -41,6 +42,7 @@ let generalControllers = {
 
                     $('.main-nav li.active').removeClass('active');
                     $('a[href^="#/home"]').parent('li').addClass('active');
+                    window.scrollTo(0, 0);
                 })
                 .catch((error) => console.log(error));
             },
@@ -69,6 +71,7 @@ let generalControllers = {
 
                     $('.main-nav li.active').removeClass('active');
                     $('a[href^="#/about"]').parent('li').addClass('active');
+                    window.scrollTo(0, 0);
                 })
                 .catch((error) => console.log(error));
             },
@@ -97,6 +100,7 @@ let generalControllers = {
 
                     $('.main-nav li.active').removeClass('active');
                     $('a[href^="#/contact"]').parent('li').addClass('active');
+                    window.scrollTo(0, 0);
 
                     $('.btn-add-comment').click((event) => {
                         var commentContent = $('#message').val(),
